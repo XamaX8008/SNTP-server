@@ -20,7 +20,7 @@ class SntpServer:
         while True:
             data, address = self.sock.recvfrom(1024)
             self.thread_pool.apply_async(self.handle_request,
-                                         args=(data, address, self.delay))
+                                         args=(data, address))
 
     def handle_request(self, data: bytes, address: str) -> None:
         """Генерирует пакет временного ответа и отправляет обратно клиенту."""
